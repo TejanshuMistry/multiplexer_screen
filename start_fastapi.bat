@@ -1,5 +1,6 @@
 @echo off
 REM Check if the virtual environment exists
+cd /d "C:\path\to\your\fastapi\project"
 if not exist "venv" (
     echo Creating virtual environment...
     python -m venv venv
