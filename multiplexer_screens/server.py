@@ -1,5 +1,6 @@
 import asyncio
 import websockets
+import json
 
 connected_clients = set()
 
@@ -12,7 +13,7 @@ async def handle_client(websocket):
             # Echo the message back to all connected clients
             for client in connected_clients:
                 if client != websocket:
-                    await client.send(message)
+                    await client.send(str(message))
     except websockets.exceptions.ConnectionClosed:
         print(f"Client {websocket.remote_address} disconnected.")
     finally:
